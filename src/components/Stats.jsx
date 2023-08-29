@@ -17,7 +17,10 @@ export default function Stats() {
     const [data, setData] = useState("");
 
     useEffect(() => {
-        setData(localStorage.getItem("text-area"));
+        if (localStorage.getItem("text-area")) {
+            setData(localStorage.getItem("text-area"));
+        }
+
     }, []);
 
     ChartJS.register(
@@ -53,7 +56,7 @@ export default function Stats() {
             {
                 label: 'Total words (vs) Unique words',
                 data: wordsBar,
-                backgroundColor: 'rgba(255, 99, 132, 0.5)',
+                backgroundColor: 'rgba(56, 189, 248, 0.5)',
             },
         ],
     };
