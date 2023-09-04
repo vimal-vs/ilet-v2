@@ -8,6 +8,7 @@ export default function Form({ data, updateData }) {
         if (confirm("are you sure to reset all data?")) {
             updateData("");
             localStorage.setItem("text-area", "");
+            location.reload();
         }
     };
 

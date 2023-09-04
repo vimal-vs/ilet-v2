@@ -4,7 +4,7 @@ import { useEffect, useState } from "react"
 import logo from "../../public/logo.png"
 import Image from "next/image"
 
-export default function Header({ data, updateData }) {
+export default function Header({ data, updateData, updateFindReplaceData }) {
 
     const [showFileDropDown, setFileShowDropDown] = useState(false);
     const [showEditDropDown, setEditShowDropDown] = useState(false);
@@ -55,6 +55,7 @@ export default function Header({ data, updateData }) {
             const value = prompt(`Enter a word to replace  '${foundValue}'`);
             if (value) {
                 updateData(data.replaceAll(foundValue, value));
+                updateFindReplaceData(foundValue, value);
                 setFoundValue("");
             }
         }
